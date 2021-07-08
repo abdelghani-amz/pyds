@@ -841,6 +841,12 @@ class MassFunction(dict):
         else:
             return None
     
+    def max_pig(self):
+        st = self.pignistic()
+        value_list = [(st[s], s) for s in st]
+        shuffle(value_list)
+        return max(value_list)[1]
+        
     def to_dict(self):
         """Convert a mass function only consisting of singletons to a dictionary by removing each enclosing frozenset."""
         if not self.is_probabilistic():
